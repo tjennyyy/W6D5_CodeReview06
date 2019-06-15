@@ -57,6 +57,7 @@ public class Database {
 
         String sql = "SELECT classes.teacherID, classes.classroom FROM" + classesTable + "ORDER BY classes.teacherID";
         PreparedStatement pstmnt = conn.prepareStatement(sql);
+        pstmnt.setInt(0,1);
         ResultSet rs = pstmnt.executeQuery();
         List<Classes> listClass = new ArrayList<>();
 
