@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -10,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.swing.*;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -24,23 +25,21 @@ public class Main extends Application {
     private TextField TFteacherName;
     private TextField TFteacherSurname;
     private TextField TFteacherEMail;
-    
+
     @Override
-    public void init(){
+    public void init() {
         try {
             database = new Database();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             displayExeption(e);
         }
     }
 
     @Override
-    public void stop(){
+    public void stop() {
         try {
             database.closeDb();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             displayExeption(e);
         }
     }
@@ -53,34 +52,23 @@ public class Main extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws  Exception{
+    public void start(Stage primaryStage) throws Exception {
 
         primaryStage.setTitle("School Statics of Teachers (1)");
 
-        // HBox
-        HBox root = new HBox();
-        root.setPadding(new Insets(30));
-        root.setSpacing(40);
-        root.setAlignment(Pos.CENTER);
-        // VBox
-        VBox ListTeaccher = new VBox();
-        VBox ListThisTeaccher = new VBox();
-        VBox ListTeaccherClasses = new VBox();
+        // 
 
 
-        // layout for ListTeacher
-        Label teachers = new Label("Teachers");
-        LVteacher = new ListView<>();
-        LVteacher.setMaxSize(300,600);
-        LVteacher.getSelectionModel().selectedIndexProperty().addListener(new ListChangeListener<>().Change<>());
-        database = getDatabase ();
-        LVteacher.setItems(database);
+
 
 
     }
 
-
-
-
-
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
 }
+
+
+
+
