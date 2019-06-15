@@ -118,10 +118,7 @@ public class Main extends Application {
 
         LVclasses = new ListView<>();
         LVclasses.setMaxSize(300, 600);
-/*
-        LVclasses.setMouseTransparent(true);
-        LVclasses.setFocusTraversable(false);
-*/
+
         teachClasses.setSpacing(15);
 
         teachClasses.getChildren().addAll(classes, LVclasses);
@@ -134,7 +131,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        // initial selection in LVteacher
+        // select in LVteacher
         LVteacher.getSelectionModel().selectFirst();
 
     }
